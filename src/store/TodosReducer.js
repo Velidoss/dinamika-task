@@ -15,11 +15,21 @@ const TodosReducer = (state=initialState, action) => {
     case UPDATE_TODO:
       return state;
     case REMOVE_TODO: 
-      return state;
+    return {
+      ...state,
+      todos: [...state.todos.filter((todo) => todo.id !== payload)],
+    }
     default:
       return state;
   }
 };
+
+export const removeTodo = (todoId) => {
+  return {
+    type: REMOVE_TODO,
+    payload: todoId,
+  }
+}
 
 const setTodosAC = (todos) => {
   return {

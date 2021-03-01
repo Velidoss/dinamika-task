@@ -6,12 +6,22 @@ import Todos from '../Todos/Todos';
 
 const Main = (props) => {
 
+  const style = {
+    minHeight: 'calc(100vh - 134px)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+
   return (
-    <Switch>
-      <Route exact path='/' render={() => <Todos />} />
-      <Route path='/edit' render={() => <EditComponent />} />
-      <Route path='/about' render={() => <AboutComponent />} />
-    </Switch>
+    <div style={style}>
+      <Switch>
+        <Route exact path='/' render={() => <Todos />} />
+        <Route path='/edit' render={() => <EditComponent />} />
+        <Route path='/about' render={() => <AboutComponent />} />
+      </Switch>
+    </div>
+
   )};
 
 export default Main

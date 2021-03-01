@@ -2,15 +2,18 @@
   "todos": [
     {
       "id": 0,
+      "title": "Survive pt.1",
       "text": "Get to the chopper"
     },
     {
       "id": 1,
+      "title": "Survive pt.2",
       "text": "Run from predator"
     },
     {
       "id": 2,
-      "text": "Survive"
+      "title": "Survive pt.3",
+      "text": "Evacuate"
     }
   ]
 }

@@ -1,9 +1,5 @@
-import './App.css';
-import React, {useEffect} from 'react';
+import React from 'react';
 import { Layout } from 'antd';
-import {getTodos} from './store/TodosReducer';
-import { useSelector, useDispatch } from 'react-redux';
-import todosSelector from './store/selectors/todosSelector';
 import MenuComponent from './components/Menu/MenuComponent';
 import Main from './components/Main/Main';
 
