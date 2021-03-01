@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Switch, Route } from 'react-router-dom';
 import AboutComponent from '../About/AboutComponent';
 import EditComponent from '../Edit/EditComponent';
+import {useDispatch} from 'react-redux';
 import Todos from '../Todos/Todos';
+import {getTodos} from '../../store/TodosReducer';
 
 const Main = (props) => {
 
@@ -12,6 +14,11 @@ const Main = (props) => {
     justifyContent: 'center',
     alignItems: 'center',
   }
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTodos());
+  }, []);
 
   return (
     <div style={style}>

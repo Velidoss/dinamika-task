@@ -13,7 +13,18 @@ const TodosReducer = (state=initialState, action) => {
         todos: payload,
       }
     case UPDATE_TODO:
-      return state;
+      const newTodos = [...state.todos.map((todo) => {
+        if (todo.id === payload.id) {
+          todo.text = payload.newText
+        } 
+        console.log(todo);
+        return todo;
+      })];
+      console.log(newTodos);
+      return {
+        ...state,
+        todos: newTodos
+      };
     case REMOVE_TODO: 
     return {
       ...state,
@@ -24,10 +35,17 @@ const TodosReducer = (state=initialState, action) => {
   }
 };
 
-export const removeTodo = (todoId) => {
+export const removeTodo = (id) => {
   return {
     type: REMOVE_TODO,
-    payload: todoId,
+    payload: id,
+  }
+}
+
+export const editTodo = (id, newText) => {
+  return {
+    type: UPDATE_TODO,
+    payload: {id, newText},
   }
 }
 

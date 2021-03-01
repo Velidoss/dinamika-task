@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import React from 'react';
+import {useSelector} from 'react-redux';
 import todosSelector from '../../store/selectors/todosSelector';
-import {getTodos} from '../../store/TodosReducer';
+
 import TodoItem from './TodoItem';
 
 const Todos = () => {
@@ -10,12 +10,6 @@ const Todos = () => {
   const style={
     width: '80%',
   }
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getTodos());
-  }, []);
 
   return (
     <div style={style}>
