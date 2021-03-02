@@ -26,18 +26,23 @@ const TodoItemEditable = ({title, text, id}) => {
           <Input placeholder={text}/>
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">Submit</Button>
-        </Form.Item>
-        <Form.Item>
+          <Button 
+            type="primary" 
+            htmlType="submit"
+          >
+            Edit
+          </Button>          
           <Button 
             onClick={() => dispatch(removeTodo(id))}
             type="primary" 
             danger
+            style={{
+              marginLeft: '40px'
+            }}
           >
             Remove
           </Button>
         </Form.Item>
-
       </Form>
     </Card>
   )

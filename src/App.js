@@ -2,6 +2,7 @@ import React from 'react';
 import { Layout } from 'antd';
 import MenuComponent from './components/Menu/MenuComponent';
 import Main from './components/Main/Main';
+import FooterComponent from './components/Footer/FooterComponent';
 
 function App() {
 
@@ -11,13 +12,13 @@ function App() {
     <>
       <Layout>
         <Header>
-          <MenuComponent />
+          <MenuComponent/>
         </Header>
         <Content>
-          <Main />
+          <Main/>
         </Content>
         <Footer>
-          Footer
+          <FooterComponent/>
         </Footer>
       </Layout>
     </>

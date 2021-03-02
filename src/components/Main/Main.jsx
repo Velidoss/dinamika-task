@@ -12,20 +12,19 @@ const Main = (props) => {
     minHeight: 'calc(100vh - 134px)',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
   }
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getTodos());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div style={style}>
       <Switch>
-        <Route exact path='/' render={() => <Todos />} />
         <Route path='/edit' render={() => <EditComponent />} />
         <Route path='/about' render={() => <AboutComponent />} />
+        <Route path='/' render={() => <Todos />} />
       </Switch>
     </div>
 
