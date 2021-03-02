@@ -1,10 +1,10 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import todosSelector from '../../store/selectors/todosSelector';
-import AddTodoComponent from './AddTodoComponent';
-import TodoItem from './TodoItem';
+import AddTodoComponentComponent from './AddTodoComponent';
+import TodoItemComponent from './TodoItemComponent';
 
-const Todos = () => {
+const TodosComponent = () => {
 
   const todosData = useSelector(todosSelector);
   const style={
@@ -13,10 +13,10 @@ const Todos = () => {
 
   return (
     <div style={style}>
-      <AddTodoComponent />
+      <AddTodoComponentComponent />
       {
         todosData 
-        ? todosData.map((todo) => <TodoItem 
+        ? todosData.map((todo) => <TodoItemComponent 
           key={todo.id}
           id={todo.id}
           title={todo.title}
@@ -27,4 +27,4 @@ const Todos = () => {
     </div>
 )};
 
-export default Todos;
+export default TodosComponent;

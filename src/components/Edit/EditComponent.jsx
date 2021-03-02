@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import todosSelector from '../../store/selectors/todosSelector';
-import TodoItemEditable from '../Todos/TodoItemEditable';
+import TodoItemEditableComponent from '../Todos/TodoItemEditableComponent';
 
 const EditComponent = () => {
 
@@ -14,7 +14,7 @@ const EditComponent = () => {
     <div style={style}>
       {
         todosData 
-        ? todosData.map((todo) => <TodoItemEditable 
+        ? todosData.map((todo) => <TodoItemEditableComponent 
           key={todo.id}
           id={todo.id}
           title={todo.title}

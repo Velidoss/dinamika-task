@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import AboutComponent from '../About/AboutComponent';
 import EditComponent from '../Edit/EditComponent';
 import {useDispatch} from 'react-redux';
-import Todos from '../Todos/Todos';
+import TodosComponent from '../Todos/TodosComponent';
 import {getTodos} from '../../store/TodosReducer';
 
 const Main = (props) => {
@@ -24,7 +24,7 @@ const Main = (props) => {
       <Switch>
         <Route path='/edit' render={() => <EditComponent />} />
         <Route path='/about' render={() => <AboutComponent />} />
-        <Route path='/' render={() => <Todos />} />
+        <Route path='/' render={() => <TodosComponent />} />
       </Switch>
     </div>
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout } from 'antd';
 import MenuComponent from './components/Menu/MenuComponent';
-import Main from './components/Main/Main';
+import MainComponent from './components/Main/MainComponent';
 import FooterComponent from './components/Footer/FooterComponent';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           <MenuComponent/>
         </Header>
         <Content>
-          <Main/>
+          <MainComponent/>
         </Content>
         <Footer>
           <FooterComponent/>

@@ -1,19 +1,20 @@
 import { Card, Button, Form, Input } from 'antd';
 import React from 'react';
-import {editTodo} from '../../store/TodosReducer';
-import {removeTodo} from '../../store/TodosReducer';
+import {editTodoAC, removeTodoAC} from '../../store/TodosReducer';
 import {useDispatch} from 'react-redux';
 
-const TodoItemEditable = ({title, text, id}) => {
+const TodoItemEditableComponent = ({title, text, id}) => {
 
   const dispatch = useDispatch();
   const style={
     width: '100%',
     marginTop: '20px',
   }
+  const [form] = Form.useForm();
 
   const onFinish = (values) => {
-    dispatch(editTodo(id, values.newText));
+    dispatch(editTodoAC(id, values.newText));
+    form.resetFields();
   }
 
   return (
@@ -21,6 +22,7 @@ const TodoItemEditable = ({title, text, id}) => {
       <Form
         layout="horizontal"
         onFinish={onFinish}
+        form={form}
       >
         <Form.Item name="newText">
           <Input placeholder={text}/>
@@ -33,7 +35,7 @@ const TodoItemEditable = ({title, text, id}) => {
             Edit
           </Button>          
           <Button 
-            onClick={() => dispatch(removeTodo(id))}
+            onClick={() => dispatch(removeTodoAC(id))}
             type="primary" 
             danger
             style={{
@@ -48,4 +50,4 @@ const TodoItemEditable = ({title, text, id}) => {
   )
 };
 
-export default TodoItemEditable;
+export default TodoItemEditableComponent;

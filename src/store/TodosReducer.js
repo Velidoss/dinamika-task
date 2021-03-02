@@ -1,4 +1,7 @@
 import getJSONdata from "../utils/getJSONdata";
+import getTodoId from "../utils/getTodoId";
+import removeTodoItemFromList from "../utils/removeTodoItemFromList";
+import updateTodoText from "../utils/updateTodoText";
 import {
   SET_TODOS, 
   UPDATE_TODO, 
@@ -7,6 +10,7 @@ import {
 } from './actions';
 
 const initialState = [];
+
 const TodosReducer = (state=initialState, action) => {
   const {type, payload} = action;
   switch(type) {
@@ -16,7 +20,7 @@ const TodosReducer = (state=initialState, action) => {
         todos: payload,
       }
     case ADD_TODO:
-      const id = state.todos[state.todos.length - 1].id + 1;
+      const id = getTodoId(state.todos);
       return {
         ...state,
         todos: [
@@ -25,28 +29,23 @@ const TodosReducer = (state=initialState, action) => {
         ],
       }
     case UPDATE_TODO:
-      const newTodos = [...state.todos.map((todo) => {
-        if (todo.id === payload.id) {
-          todo.text = payload.newText
-        } 
-        return todo;
-      })];
-      console.log(newTodos);
       return {
         ...state,
-        todos: newTodos
+        todos: updateTodoText(
+          state.todos, payload.id, payload.newText
+          )
       };
     case REMOVE_TODO: 
-    return {
-      ...state,
-      todos: [...state.todos.filter((todo) => todo.id !== payload)],
-    }
+      return {
+        ...state,
+        todos: removeTodoItemFromList(state.todos, payload),
+      }
     default:
       return state;
   }
 };
 
-export const removeTodo = (id) => {
+export const removeTodoAC = (id) => {
   return {
     type: REMOVE_TODO,
     payload: id,
@@ -60,7 +59,7 @@ export const addTodoAC = (title, text) => {
   }
 }
 
-export const editTodo = (id, newText) => {
+export const editTodoAC = (id, newText) => {
   return {
     type: UPDATE_TODO,
     payload: {id, newText},

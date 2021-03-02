@@ -3,7 +3,7 @@ import {Form, Input, Button, Card} from 'antd';
 import {useDispatch} from 'react-redux';
 import {addTodoAC} from '../../store/TodosReducer';
 
-const AddTodoComponent = () => {
+const AddTodoComponentComponent = () => {
 
   const dispatch = useDispatch();
 
@@ -48,4 +48,4 @@ const AddTodoComponent = () => {
   )
 };
 
-export default AddTodoComponent;
+export default AddTodoComponentComponent;

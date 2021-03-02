@@ -1,7 +1,7 @@
 import { Card } from 'antd';
 import React from 'react';
 
-const TodoItem = ({title,text, id}) => {
+const TodoItemComponent = ({title,text, id}) => {
 
   const style={
     width: '100%',
@@ -14,4 +14,4 @@ return (
   </Card>
 )};
 
-export default TodoItem
+export default TodoItemComponent
