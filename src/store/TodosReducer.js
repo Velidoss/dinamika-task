@@ -1,6 +1,9 @@
 import getJSONdata from "../utils/getJSONdata";
 import {
-  SET_TODOS, UPDATE_TODO, REMOVE_TODO
+  SET_TODOS, 
+  UPDATE_TODO, 
+  REMOVE_TODO,
+  ADD_TODO,
 } from './actions';
 
 const initialState = [];
@@ -12,12 +15,20 @@ const TodosReducer = (state=initialState, action) => {
         ...state,
         todos: payload,
       }
+    case ADD_TODO:
+      const id = state.todos[state.todos.length - 1].id + 1;
+      return {
+        ...state,
+        todos: [
+          ...state.todos, 
+          {...payload, id}
+        ],
+      }
     case UPDATE_TODO:
       const newTodos = [...state.todos.map((todo) => {
         if (todo.id === payload.id) {
           todo.text = payload.newText
         } 
-        console.log(todo);
         return todo;
       })];
       console.log(newTodos);
@@ -39,6 +50,13 @@ export const removeTodo = (id) => {
   return {
     type: REMOVE_TODO,
     payload: id,
+  }
+}
+
+export const addTodoAC = (title, text) => {
+  return {
+    type: ADD_TODO,
+    payload: {title, text},
   }
 }
 

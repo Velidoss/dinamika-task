@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import todosSelector from '../../store/selectors/todosSelector';
-
+import AddTodoComponent from './AddTodoComponent';
 import TodoItem from './TodoItem';
 
 const Todos = () => {
@@ -13,6 +13,7 @@ const Todos = () => {
 
   return (
     <div style={style}>
+      <AddTodoComponent />
       {
         todosData 
         ? todosData.map((todo) => <TodoItem 

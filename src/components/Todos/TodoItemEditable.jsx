@@ -1,6 +1,7 @@
 import { Card, Button, Form, Input } from 'antd';
 import React from 'react';
 import {editTodo} from '../../store/TodosReducer';
+import {removeTodo} from '../../store/TodosReducer';
 import {useDispatch} from 'react-redux';
 
 const TodoItemEditable = ({title, text, id}) => {
@@ -27,6 +28,16 @@ const TodoItemEditable = ({title, text, id}) => {
         <Form.Item>
           <Button type="primary" htmlType="submit">Submit</Button>
         </Form.Item>
+        <Form.Item>
+          <Button 
+            onClick={() => dispatch(removeTodo(id))}
+            type="primary" 
+            danger
+          >
+            Remove
+          </Button>
+        </Form.Item>
+
       </Form>
     </Card>
   )
